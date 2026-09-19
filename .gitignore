@@ -11,12 +11,19 @@ __pycache__/
 # OS
 .DS_Store
 
+# Raw crawler output; the cleaned submission corpus is kept separately.
+data/dang-ky-hoc-phan/
+
 # IDE
 .vscode/
 .idea/
 .omx/
 .venv/
 src_w_solution/
+
+# Local console captures used during verification.
+bench_run_console.txt
+main_run_console.txt
 
 # Instructor-only notes (chứa gợi ý/đáp án chấm bài, không public cho học viên)
 docs/INSTRUCTOR_GUIDE.md

@@ -20,6 +20,17 @@ from src.embeddings import (
 from src.models import Document
 from src.store import EmbeddingStore
 
+
+def _configure_console_encoding() -> None:
+    """Keep Vietnamese output readable in Windows consoles using cp1252."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
+
+
+_configure_console_encoding()
+
+
 SAMPLE_FILES = [
     "data/python_intro.txt",
     "data/vector_store_notes.md",

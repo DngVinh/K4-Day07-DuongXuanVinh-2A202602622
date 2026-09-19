@@ -1,0 +1,59 @@
+Lab 07 benchmark: Đăng ký học phần
+Embedding backend: keyword-hash offline fallback
+Corpus: data\dang-ky-hoc-phan-final
+
+=== Strategy: recursive | Owner: Đinh Tiến Mạnh ===
+Stored chunks: 23
+Chunk counts: hcmut-course-registration-rules=4, hoasen-academic-regulations=2, tdtu-course-registration-guide=3, ueh-course-registration-regulation=5, uel-course-registration-process=5, ute-course-registration-guide=4
+Q1: Theo hướng dẫn TDTU, sinh viên được đăng ký học phần ngoài kế hoạch học tập khi nào?
+  Filter: none
+  Top-3 unfiltered: tdtu-course-registration-guide#1 score=0.2971 | tdtu-course-registration-guide#0 score=0.1907 | hoasen-academic-regulations#0 score=0.1382
+  Top-3 used: tdtu-course-registration-guide#1 score=0.2971 | tdtu-course-registration-guide#0 score=0.1907 | hoasen-academic-regulations#0 score=0.1382
+  Relevant chunk+gold marker in top-3: YES
+  Expected doc rank: 1
+  Agent answer markers: YES (đợt bổ sung, còn chỗ, không trùng)
+  Score: 2/2
+  Agent: [1] Sinh viên chỉ được đăng ký những môn học đã được xây dựng trong kế hoạch học tập. [2] ## Đăng ký theo kế hoạch học tập [3] Danh mục có tài liệu **Quy định kế hoạch học tập, tổ chức và đăng ký học phần**, cùng các quy định về công tác đào tạo, chuẩn tiếng Anh, điểm danh, giáo dục quốc phòng, công nhận tốt nghiệp và hồ sơ sinh viên. [1] Môn chưa có trong kế hoạch chỉ được đăng ký thêm ở đợt bổ sung, khi môn còn chỗ và không trùng thời khóa biểu với các môn đã đăng ký. [1] TDTU Student Course Registration Guide [2] TDTU Student Course Registration Guide [3] Đây là trang công khai của Phòng Đào tạo Đại học, tập hợp các quy định và biểu mẫu dùng chung trong nhà trường.
+  Gold: Chỉ được đăng ký môn đã có trong kế hoạch học tập; môn ngoài kế hoạch chỉ được thêm ở đợt bổ sung nếu còn chỗ và không trùng thời khóa biểu.
+Q2: Theo quy trình UEL, sau khi đăng ký thành công, sinh viên phải lưu kết quả có mã vạch và được điều chỉnh những gì?
+  Filter: none
+  Top-3 unfiltered: uel-course-registration-process#1 score=0.3110 | ute-course-registration-guide#3 score=0.2918 | uel-course-registration-process#0 score=0.2367
+  Top-3 used: uel-course-registration-process#1 score=0.3110 | ute-course-registration-guide#3 score=0.2918 | uel-course-registration-process#0 score=0.2367
+  Relevant chunk+gold marker in top-3: YES
+  Expected doc rank: 1
+  Agent answer markers: NO (mã vạch, hủy môn, đổi môn)
+  Score: 1/2
+  Agent: [1] Sau khi đăng ký thành công, sinh viên bắt buộc xuất kết quả đăng ký và lưu bản có mã vạch. [2] Sinh viên nên lưu kết quả và mã số vì mã này cần cho việc điều chỉnh ở giai đoạn sau. [2] Sau khi gửi đăng ký, hệ thống lưu các lớp đã chọn và cấp mã số đăng ký. [3] ## Quy trình chính [1] UEL Main-Semester Course Registration Process [2] Khi tổng số tín chỉ thấp hơn mức tối thiểu, hệ thống có thể tiếp tục hiển thị nút chọn thêm thay vì cho phép xác nhận hoàn tất. [3] UEL Main-Semester Course Registration Process
+  Gold: Sinh viên phải xuất kết quả đăng ký có mã vạch để lưu; ở đợt điều chỉnh có thể hủy môn hoặc đổi môn tự chọn nhưng không được đăng ký bổ sung môn mới.
+Q3: Theo hướng dẫn UTE, kế hoạch đăng ký học phần gồm đăng ký sơ bộ và giai đoạn nào nữa?
+  Filter: none
+  Top-3 unfiltered: ute-course-registration-guide#0 score=0.4801 | ute-course-registration-guide#1 score=0.4149 | ute-course-registration-guide#3 score=0.1313
+  Top-3 used: ute-course-registration-guide#0 score=0.4801 | ute-course-registration-guide#1 score=0.4149 | ute-course-registration-guide#3 score=0.1313
+  Relevant chunk+gold marker in top-3: YES
+  Expected doc rank: 1
+  Agent answer markers: YES (hai giai đoạn, đăng ký hoàn chỉnh)
+  Score: 2/2
+  Agent: [1] Đối với đào tạo theo tín chỉ, kế hoạch đăng ký môn học gồm hai giai đoạn: [2] **Đăng ký sơ bộ:** sinh viên đăng nhập cổng sinh viên, chọn các lớp học phần còn mở và xây dựng kế hoạch học tập cho học kỳ. [2] **Đăng ký hoàn chỉnh:** sau đợt sơ bộ, Phòng Đào tạo có thể điều chỉnh hoặc hủy lớp; sinh viên hoàn tất hoặc điều chỉnh đăng ký ở giai đoạn này. [3] Sinh viên nên lưu kết quả và mã số vì mã này cần cho việc điều chỉnh ở giai đoạn sau. [1] ## Hai giai đoạn đăng ký [1] UTE Course Registration Guide [2] UTE Course Registration Guide [3] UTE Course Registration Guide
+  Gold: Kế hoạch gồm hai giai đoạn: đăng ký sơ bộ và đăng ký hoàn chỉnh, trong đó giai đoạn sau dùng để điều chỉnh và hoàn tất đăng ký.
+Q4: Theo quy định UEH, nếu không đóng học phí đúng hạn thì học phần bị xử lý thế nào, và hạn hủy học phần là bao lâu?
+  Filter: none
+  Top-3 unfiltered: uel-course-registration-process#3 score=0.2729 | ueh-course-registration-regulation#2 score=0.2493 | ueh-course-registration-regulation#4 score=0.2391
+  Top-3 used: uel-course-registration-process#3 score=0.2729 | ueh-course-registration-regulation#2 score=0.2493 | ueh-course-registration-regulation#4 score=0.2391
+  Relevant chunk+gold marker in top-3: YES
+  Expected doc rank: 2
+  Agent answer markers: YES (học phí, 10 ngày)
+  Score: 1/2
+  Agent: [1] Môn học lại và học cải thiện có thể bị hủy nếu sinh viên không đóng học phí đúng hạn. [2] Sinh viên phải đóng học phí đúng thời gian; quá hạn, trường có thể hủy các học phần chưa đóng học phí. [3] Nguồn quy định các mốc **10 ngày** trước thời điểm công bố thời khóa biểu chính thức đối với một số trường hợp hủy, hoặc **10 ngày** trước kỳ thi kết thúc học phần đối với trường hợp hủy không rút học phí. [3] Yêu cầu ngoài thời hạn không được giải quyết. [1] Phòng Kế hoạch - Tài chính thông báo đóng học phí; sinh viên đóng học phí tại ngân hàng Agribank. [2] UEH Course Registration and Cancellation Regulation [2] Trong thời gian đăng ký, sinh viên kiểm tra thời khóa biểu dự kiến và điều chỉnh khi cần, gồm đăng ký học lại, học cải thiện, hủy học phần hoặc chuyển lớp. [3] UEH Course Registration and Cancellation Regulation
+  Gold: UEH có thể hủy học phần chưa đóng học phí đúng hạn; yêu cầu hủy học phần phải theo thời hạn, thường là 10 ngày trước mốc thời khóa biểu hoặc kỳ thi tùy trường hợp.
+Q5: Quy định kế hoạch học tập, tổ chức và đăng ký học phần: cần kiểm tra những điều kiện nào trước khi đăng ký?
+  Filter: {'audience': 'student'}
+  Top-3 unfiltered: hoasen-academic-regulations#0 score=0.3504 | ueh-course-registration-regulation#0 score=0.1960 | hcmut-course-registration-rules#3 score=0.1744
+  Top-3 filtered: ueh-course-registration-regulation#0 score=0.1960 | hcmut-course-registration-rules#3 score=0.1744 | tdtu-course-registration-guide#1 score=0.1563
+  Relevant chunk+gold marker in top-3: NO
+  Expected doc rank: 2
+  Agent answer markers: NO (học phí, tiên quyết)
+  Score: 0/2
+  Filter changed candidates: YES
+  Agent: [2] Sinh viên cần kiểm tra kết quả hiển thị trên MyBK và lưu thông tin đăng ký. [3] Sinh viên chỉ được đăng ký những môn học đã được xây dựng trong kế hoạch học tập. [1] Quy định áp dụng cho sinh viên đại học chính quy, văn bằng 2 chính quy và liên thông chính quy học theo hệ thống tín chỉ. [2] Nếu không đăng ký thời khóa biểu trong học kỳ chính, sinh viên có thể bị xử lý tình trạng học vụ theo quy định của trường. [3] Môn chưa có trong kế hoạch chỉ được đăng ký thêm ở đợt bổ sung, khi môn còn chỗ và không trùng thời khóa biểu với các môn đã đăng ký. [1] UEH Course Registration and Cancellation Regulation [1] ## Điều kiện đăng ký [2] HCMUT Course Registration Rules and Guide
+  Gold: Cần kiểm tra trạng thái học tập, điều kiện tiên quyết hoặc học phần trước, chuẩn ngoại ngữ/công nghệ thông tin nếu áp dụng, các chuẩn giáo dục thể chất/quốc phòng và tình trạng học phí.
+Total benchmark score: 6/10

@@ -207,6 +207,18 @@ PY
 4. **Mỗi thành viên thử chiến lược riêng**: phương pháp chunking, các tham số, cấu trúc metadata
 5. **So sánh kết quả trong nhóm**: chiến lược nào cho việc truy xuất tốt hơn? Tại sao?
 
+### Benchmark nhóm trong workspace hiện tại
+
+Nhóm G11 đang dùng corpus đăng ký học phần tại `data/dang-ky-hoc-phan-final/`, gồm 6 tài liệu Markdown có front matter và `sources.csv`. Bộ đánh giá chung gồm đúng 5 query, mỗi query lấy `top_k=3`; cấu hình, gold answer và cách chấm được ghi trong [report/REPORT_NHOM.md](report/REPORT_NHOM.md).
+
+Có thể tái lập so sánh cả 5 chiến lược bằng:
+
+```bash
+python bench.py --strategy all
+```
+
+Benchmark mặc định dùng `keyword-hash offline fallback` nên không cần API key. Kết quả đầy đủ được lưu ở [ket_qua_benchmark_nhom.txt](ket_qua_benchmark_nhom.txt); đây là số liệu dùng chung khi đối chiếu các report cá nhân. Nếu đổi sang `local`, `openai` hoặc `gemini`, phải chạy lại benchmark và cập nhật các bảng kết quả tương ứng.
+
 ---
 
 ## Cách Tự Đánh Giá Kết Quả Truy Xuất (Retrieval)
